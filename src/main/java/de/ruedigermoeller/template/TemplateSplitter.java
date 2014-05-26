@@ -143,9 +143,6 @@ public class TemplateSplitter {
                     isInLine = false;
                 }
                 String toInsert = b.toString();  // the tagged area
-                if (toInsert.indexOf("fi.getName().startsWith(") >= 0) {
-                    System.out.println("");
-                }
                 if (clazzName != null)           // special
                 {
                     toInsert = replace(toInsert, "CLAZZNAME", clazzName, 0);
@@ -205,8 +202,8 @@ public class TemplateSplitter {
      * sample code
      */
     public static void main(final String[] args) throws Exception {
-        final FileInputStream in = new FileInputStream("c:\\temp\\tpl\\sample.jpl");
-        final PrintStream out = new PrintStream(new FileOutputStream("c:\\temp\\tpl\\sample.java"));
+        final FileInputStream in = new FileInputStream("\\temp\\tpl\\sample.jpl");
+        final PrintStream out = new PrintStream(new FileOutputStream("\\temp\\tpl\\sample.java"));
         final TemplateSplitter splitter = new TemplateSplitter(in, out);
         splitter.run();
         splitter.closeIn();
