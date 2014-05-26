@@ -118,12 +118,57 @@ public class sampleGEN implements IContextReceiver {
 // template line:44
 ```
 
-which then is executed with the given context.
+which then is executed with the given context. E.g.:
 
-Generating intermediary and execut in one step:
 ```java
+    public static class TemplateContext {
+
+        public String clazzName;
+        public String getters[] = { "Test", "Other", "Example" };
+
+        public TemplateContext(String clazzName) {
+            this.clazzName = clazzName;
+        }
+
+    }
+
+
 public static void main( String arg[] ) {
     TemplateExecutor.Run("./src/main/resources/sample.jsp", new TemplateContext("GeneratedClass"));
+}
+```
+
+final result:
+
+```java
+// imports of output go here
+import java.util.*;
+
+public class GeneratedClass {
+
+    public GeneratedClass() {
+        System.out.println("value of xy at generation time "+13); // note the quoting !
+    }
+
+
+    String Test;
+
+    public getTest( String val ) {
+        return Test;
+    }
+
+    String Other;
+
+    public getOther( String val ) {
+        return Other;
+    }
+
+    String Example;
+
+    public getExample( String val ) {
+        return Example;
+    }
+
 }
 ```
 
@@ -131,3 +176,6 @@ Note that it is checked, wether the template has changed before regenerating it.
 The intermedaite files can be found in ./tempgen to easy finding bugs/errors during compilation.
 
 A working sample is included.
+
+* name file.jsp to get hilighting in IDE
+* note that '"' in nonquoted output need java string escaping, else you'll get compile errors.
