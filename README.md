@@ -174,7 +174,7 @@ public class GeneratedClass {
 ```
 
 Note that it is checked, wether the template has changed before regenerating it.
-The intermedaite files can be found in ./tempgen to easy finding bugs/errors during compilation.
+The intermediate files can be found in ./tempgen to ease finding bugs/errors during compilation.
 
 A working sample is included.
 
