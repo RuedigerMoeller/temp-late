@@ -3,7 +3,8 @@ temp-late
 
 minimalistic template processor
 
-How it works:
+**How it works:**
+
 a template file is converted into a temporary java file. Basically the temp file is the "inverted" version of the template:
 normal code gets into "System.out.println( 'code from template' );" and tagged code of the template becomes the source.
 This file is then loaded and executed. The caller can hand in an arbitrary object which can be used at generation time.
