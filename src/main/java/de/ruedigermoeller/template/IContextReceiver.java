@@ -11,7 +11,7 @@ import java.io.PrintStream;
 
 
 /**
- * All templates have to implement this interface <br />
+ * All templates have to implement this interface
  */
 public interface IContextReceiver {
     /**

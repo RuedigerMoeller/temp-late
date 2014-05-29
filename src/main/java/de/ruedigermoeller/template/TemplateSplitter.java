@@ -11,40 +11,6 @@ import java.io.*;
 
 
 /**
- * <pre>
- * This transfomrs a given ("template"-)file into another file, applying the following rules:
- * - normal content is transformed to a java-program
- *   e.g. the input:
- *   <b>'hello this is some text'</b>
- *   will result in
- *   <b>'out.println( "hello this is some text" );'</b>
- * - content escaped using '<%' and '%>' is not transformed to 'out.println( .. )' code.
- *   e.g. the input:
- *   <b>'hello <%for int i = 1; i < 10; i++) {%> this is some text <% } %>'</b>
- *   results in:
- *   <b>'out.print( "hello" );
- *   for int i = 0; i != 10; i++) {
- *     out.print( "this is some text" );
- *   }'</b>
- * - content escaped using '<%+' and '%>' is transformed to 'out.println( "xxx" + content )' code.
- *   e.g.
- *   <b>'hello <%for int i = 1; i < 10; i++) {%> this is <%+i%> some text <% } %>'</b>
- *   results in:
- *   <b>'out.print( "hello" );
- *   for int i = 0; i != 10; i++) {
- *     out.print( "this is "+i+"some text" );
- *   }'</b>
- *
- *
- * known problems
- *  - 2 escapings without any content produce incorrect output ("<%xy%><%yz%>")
- *    workaround: "<%xy%><%yz%>" is aequivalent to "<%xyyz%>"
- *  - since unescaped input is transformed into 'out.println( "unescaped text" )'
- *    quotes have to be java-style escaped in the input file.  e.g.
- *    'these are \"quotes\"'  ==transformed to==>  'out.println( "these are \"quotes\"" )'
- *    same applies to '\'
- *    'this is one backslash: \\'  ==transformed to==>  'out.println( "this is one backslash: \\" )'
- * </pre> <br />
  */
 public class TemplateSplitter {
     InputStream in;

@@ -20,7 +20,7 @@ import java.util.*;
  *  - the javac compiler is invoked to compile the generated file. The resulting class is loaded, executed
  *    and produces the final result (a file).
  *
- * </pre> <br />
+ * </pre>
  */
 public class TemplateExecutor {
 
@@ -28,7 +28,7 @@ public class TemplateExecutor {
         TemplateExecutor exec = new TemplateExecutor(new File(templateFile), new File(outputFile), context);
         boolean res = false;
         try {
-            res = exec.execute(System.out);
+            res = exec.execute(new PrintStream(outputFile));
         } catch (Exception e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
@@ -66,7 +66,6 @@ public class TemplateExecutor {
      * @param templateFile - the templatefile to process
      * @param outputFile   - the file to write to
      * @param context      - an Object which is forwarded to the template
-     * @return
      */
     public TemplateExecutor(File templateFile, File outputFile, Object context) {
         setFiles(templateFile, outputFile, context);
@@ -92,7 +91,6 @@ public class TemplateExecutor {
      * @param templateFile - the templatefile to process
      * @param outputFile   - the file to write to
      * @param context      - an Object which is forwarded to the template
-     * @return
      */
     public void setFiles(File templateFile, File outputFile, Object context) {
         this.templateFile = templateFile;

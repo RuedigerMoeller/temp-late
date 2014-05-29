@@ -12,7 +12,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>de.ruedigermoeller</groupId>
     <artifactId>temp-late</artifactId>
-    <version>1.0</version>
+    <version>1.01</version>
 
     <description>a minimalistic template engine</description>
     <url>https://github.com/RuedigerMoeller/temp-late</url>
