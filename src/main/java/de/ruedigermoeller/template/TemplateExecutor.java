@@ -141,8 +141,12 @@ public class TemplateExecutor {
                 PrintStream javaOut = new PrintStream(new FileOutputStream(tempFile));
                 // process the template
                 new File(tmpDir + File.separator + className + ".class").delete();
-                FileInputStream in = null;
-                in = new FileInputStream(templateFile);
+                InputStream in = null;
+                if ( templateFile.exists() ) {
+                    in = new FileInputStream(templateFile);
+                } else {
+                    in = getClass().getResourceAsStream(templateFile.getPath());
+                }
                 TemplateSplitter splitter = new TemplateSplitter(in, javaOut);
                 splitter.setClazzName(className);
                 splitter.run();
