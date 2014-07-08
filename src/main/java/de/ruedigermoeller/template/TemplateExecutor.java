@@ -145,7 +145,8 @@ public class TemplateExecutor {
                 if ( templateFile.exists() ) {
                     in = new FileInputStream(templateFile);
                 } else {
-                    in = getClass().getResourceAsStream(templateFile.getPath());
+                    final String resource = templateFile.getPath().replace('\\', '/');
+                    in = getClass().getResourceAsStream(resource);
                 }
                 TemplateSplitter splitter = new TemplateSplitter(in, javaOut);
                 splitter.setClazzName(className);
