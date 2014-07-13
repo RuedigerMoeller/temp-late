@@ -136,7 +136,9 @@ public class TemplateExecutor {
             String className = getNameWithoutExt(templateFile) + "GEN";
             File clazzFile = new File(tmpDir + File.separator + className + ".class");
             tempFile = new File(tmpDir + File.separator + className + ".java");
-            if (!clazzFile.exists() || clazzFile.lastModified() < templateFile.lastModified()) {
+            if (!clazzFile.exists() || clazzFile.lastModified() < templateFile.lastModified() ||
+                !templateFile.exists() ) // if template file is loaded via classpath => always recreate ...
+            {
                 // changed ? if not skip compiling
                 PrintStream javaOut = new PrintStream(new FileOutputStream(tempFile));
                 // process the template
