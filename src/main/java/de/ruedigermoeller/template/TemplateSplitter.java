@@ -1,7 +1,7 @@
 
 /******************************************************
  * File: TemplateSplitter.java
- * created 09-May-00 3:23:35 PM by ruedi
+ * created 09-May-00 3:23:35 PM by moelrue
  */
 
 package de.ruedigermoeller.template;
