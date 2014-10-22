@@ -149,6 +149,13 @@ public class TemplateExecutor {
                 } else {
                     final String resource = templateFile.getPath().replace('\\', '/');
                     in = getClass().getResourceAsStream(resource);
+                    if ( in == null ) {
+                        in = getClass().getResourceAsStream("/"+resource);
+                        if ( in == null ) {
+                            System.out.println("could not locat template file " + templateFile + ", could not locate via CP " + resource);
+                            System.exit(-1);
+                        }
+                    }
                 }
                 TemplateSplitter splitter = new TemplateSplitter(in, javaOut);
                 splitter.setClazzName(className);
