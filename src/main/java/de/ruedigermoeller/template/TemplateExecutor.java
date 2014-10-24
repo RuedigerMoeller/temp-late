@@ -152,7 +152,7 @@ public class TemplateExecutor {
                     if ( in == null ) {
                         in = getClass().getResourceAsStream("/"+resource);
                         if ( in == null ) {
-                            System.out.println("could not locat template file " + templateFile + ", could not locate via CP " + resource);
+                            System.out.println("could not locate template file " + templateFile + ", could not locate via CP " + resource);
                             System.exit(-1);
                         }
                     }
